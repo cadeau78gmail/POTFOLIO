@@ -64,6 +64,7 @@ const PROJECTS = [
 
 const ABOUT_SKILLS = {
   frontend: ["React", "JavaScript", "HTML", "CSS"],
+  design: ["Figma", "UI/UX Design", "Prototyping"],
   backend: ["Node.js", "Express.js", "REST APIs"],
 };
 
@@ -89,6 +90,7 @@ const SELECTED_PROJECTS = [
     description: "Imizi is a digital platform designed to help families reconnect by preserving family memories and making it easier for members to discover and learn more about their family.",
     category: "Family · Digital Memories",
     type: "memories",
+    url: "https://www.figma.com/proto/KcXYmlcJotgapNVJaB453N/HACKATHON?node-id=640-1326&p=f&t=l5zJYZ7XmYolGiBt-1&scaling=min-zoom&content-scaling=fixed&page-id=12%3A5&starting-point-node-id=640%3A1326",
   },
   {
     number: "03",
@@ -96,6 +98,7 @@ const SELECTED_PROJECTS = [
     description: "GreenTrace is a wildlife conservation solution designed to help protect wildlife and support the detection and prevention of illegal activities such as charcoal burning in protected forest areas through acoustic sensors.",
     category: "Wildlife Conservation · IoT",
     type: "sensor",
+    url: "https://green-trace-kjhsshfvomrizpdn9aanaq.streamlit.app",
   },
 ];
 
@@ -330,19 +333,26 @@ function About() {
           </div>
         </div>
 
-        <div className="developer-card" aria-label="Full-stack development flow from frontend to backend">
+        <div className="developer-card" aria-label="Full-stack development flow from frontend and design to backend">
           <div className="developer-card-head">
             <span className="developer-card-kicker">FULL-STACK</span>
             <span className="developer-card-title">DEVELOPER</span>
           </div>
           <div className="stack-flow">
+            <div className="stack-layer stack-design">
+              <span className="stack-label">DESIGN</span>
+              <div className="tech-list">
+                {ABOUT_SKILLS.design.map((skill) => <span className="tech-item" key={skill}>{skill}</span>)}
+              </div>
+            </div>
+            <div className="flow-link" aria-hidden="true"><span className="flow-particle" /></div>
             <div className="stack-layer stack-frontend">
               <span className="stack-label">FRONTEND</span>
               <div className="tech-list">
                 {ABOUT_SKILLS.frontend.map((skill) => <span className="tech-item" key={skill}>{skill}</span>)}
               </div>
             </div>
-            <div className="flow-link" aria-hidden="true"><span className="flow-particle" /></div>
+            <div className="flow-link" aria-hidden="true"><span className="flow-particle flow-particle-delay" /></div>
             <div className="stack-api">REST API</div>
             <div className="flow-link" aria-hidden="true"><span className="flow-particle flow-particle-delay" /></div>
             <div className="stack-layer stack-backend">

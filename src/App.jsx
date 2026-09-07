@@ -809,12 +809,15 @@ function Styles() {
 
       .page{
         position: relative;
+        --nav-height: 88px;
         font-family: 'Inter', sans-serif;
         color: var(--text);
         background: var(--ink);
         overflow-x: hidden;
         width: 100%;
         min-height: 100vh;
+        /* Keeps content below the fixed navigation bar. */
+        padding-top: var(--nav-height);
       }
       .page.is-theme-transitioning::after{
         content: '';
@@ -967,8 +970,10 @@ function Styles() {
 
       /* ---------- NAV ---------- */
       .nav{
-        position: sticky;
+        position: fixed;
         top: 0;
+        right: 0;
+        left: 0;
         z-index: 20;
         display: flex;
         align-items: center;
@@ -978,6 +983,7 @@ function Styles() {
         backdrop-filter: blur(8px);
         border-bottom: 1px solid rgba(232,236,244,0.08);
       }
+      [id]{ scroll-margin-top: calc(var(--nav-height) + 16px); }
       .nav-mark{
         font-family: 'Space Grotesk', sans-serif;
         font-size: 20px;
@@ -1651,6 +1657,7 @@ function Styles() {
       }
 
       @media (max-width: 760px){
+        .page{ --nav-height: 65px; }
         .nav{ padding: 16px 20px; }
         .nav-mark{ font-size: 17px; }
         .nav-links{ gap: 10px; }
